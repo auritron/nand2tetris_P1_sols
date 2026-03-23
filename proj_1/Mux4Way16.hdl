@@ -1,0 +1,9 @@
+CHIP Mux4Way16 {
+    IN i0[16], i1[16], i2[16], i3[16], s0, s1;
+    OUT out[16];
+
+    PARTS:
+    Mux16(a=i0, b=i1, sel=s0, out=i01);
+    Mux16(a=i2, b=i3, sel=s0, out=i23);
+    Mux16(a=i01, b=i23, sel=s1, out=out);
+}
